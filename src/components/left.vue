@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="left-block">
     <h4 class="main-title">Левая</h4>
     <div class="content">
       <div class="content-radio">
@@ -9,21 +9,21 @@
             class="filter__item"
             v-model="radioValueEmit"
             radio-value="all"
-            radio-name="sort"
+            radio-name="filter"
             label-text="Все"
           ></own-radio>
           <own-radio
             class="filter__item"
             v-model="radioValueEmit"
             radio-value="less"
-            radio-name="sort"
+            radio-name="filter"
             label-text="amount меньше 0"
           ></own-radio>
           <own-radio
             class="filter__item"
             v-model="radioValueEmit"
             radio-value="more"
-            radio-name="sort"
+            radio-name="filter"
             label-text="amount больше 0"
           ></own-radio>
         </div>
@@ -42,7 +42,7 @@
 import OwnRadio from './uiKits/ownRadio'
 
 export default {
-  name: 'left',
+  name: 'leftBlock',
   components: {OwnRadio},
   model: {
     prop: 'statevalue',
@@ -79,21 +79,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.filter {
-  margin-bottom: 30px;
+.left-block {
+  & .filter {
+    margin-bottom: 30px;
 
-  &__title {
-    margin-bottom: 5px;
-    font-style: italic;
-    color: #707070;
+    &__title {
+      margin-bottom: 5px;
+      font-style: italic;
+      color: #707070;
+    }
+
+    &__title, &__item {
+      text-align: left;
+    }
   }
 
-  &__title, &__item {
+  & .content-checkbox {
     text-align: left;
   }
-}
-
-.content-checkbox {
-  text-align: left;
 }
 </style>

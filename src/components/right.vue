@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="right-block">
     <h4 class="main-title">Правая</h4>
     <table class="result">
       <tr>
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'right',
+  name: 'rightBlock',
   props: {
     resultArr: {
       type: Array
@@ -26,22 +26,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.result {
-  width: 100%;
-  border-collapse: collapse;
-}
+.right-block {
+  & .result {
+    width: 100%;
+    border-collapse: collapse;
+  }
 
-table, th, td {
-  border: 1px solid #d2f0ff;
-}
+  & table, & th, & td {
+    border: 1px solid #d2f0ff;
+  }
 
-th {
-  background: #d2fff1;;
-}
+  & th {
+    background: #d2fff1;;
+  }
 
-td {
-  &:first-child {
-    background: #fff9f9;;
+  & td {
+    &:first-child {
+      background: #fff9f9;;
+    }
   }
 }
 </style>

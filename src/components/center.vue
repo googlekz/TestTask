@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="center-block">
     <h4 class="main-title">Центральная</h4>
     <div class="content">
       <label
@@ -52,12 +52,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.arr-item {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 10px;
-  border-bottom: 1px solid #d2f0ff;
-  padding: 10px 0 15px;
+.center-block {
+  & .arr-item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #d2f0ff;
+    padding: 10px 0 15px;
+  }
 }
 </style>

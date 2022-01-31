@@ -1,6 +1,6 @@
 <template>
-  <div class="table">
-    <left
+  <div class="content">
+    <left-block
       v-model="isSort"
       @filter="filterArr"
       @sort="sortArr"
@@ -9,23 +9,23 @@
       class="center"
       @change="(val) => this.resultArr = val"
       :my-arr="isSort ? sortArr : currentArray"/>
-    <right
+    <right-block
       :result-arr="resultArr"
     />
   </div>
 </template>
 
 <script>
-import Left from './left'
-import Right from './right'
+import LeftBlock from './left'
+import RightBlock from './right'
 import CenterBlock from './center'
 
 export default {
   name: 'main',
-  components: {CenterBlock, Right, Left},
+  components: {CenterBlock, RightBlock, LeftBlock},
   data: () => ({
     currentArray: [],
-    myArr: [],
+    defaultArray: [],
     isSort: false,
     resultArr: []
   }),
@@ -44,15 +44,15 @@ export default {
       this.currentArray = []
       switch (radioValue) {
         case 'all':
-          this.currentArray = this.myArr
+          this.currentArray = this.defaultArray
           break
         case 'less':
-          this.myArr.forEach((item) => {
+          this.defaultArray.forEach((item) => {
             return item.amount < 0 ? this.currentArray.push(item) : ''
           })
           break
         case 'more':
-          this.myArr.forEach((item) => {
+          this.defaultArray.forEach((item) => {
             return item.amount >= 0 ? this.currentArray.push(item) : ''
           })
           break
@@ -60,12 +60,12 @@ export default {
     },
     makeArr () {
       for (let i = 0; i < 100; i++) {
-        this.myArr.push({
+        this.defaultArray.push({
           id: i,
           amount: this.fillArray()
         })
       }
-      this.currentArray = this.myArr
+      this.currentArray = this.defaultArray
     },
     fillArray () {
       return Math.floor(Math.random() * (1000 - -1000) + -1000)
@@ -75,7 +75,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.table {
+.content {
   max-width: 1080px;
   margin: auto;
   border: 1px solid #a5a5a5;
