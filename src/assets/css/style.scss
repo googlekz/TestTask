@@ -1,0 +1,31 @@
+button:focus,
+a:focus,
+input:focus {
+  outline: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+body::-webkit-scrollbar-button:end {
+  display: block;
+}
+
+body::-webkit-scrollbar-button:start {
+  display: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.main-title {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #a5a5a5;;
+}
